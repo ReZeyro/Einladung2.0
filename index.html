@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steve wird 30</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <main class="page-wrap">
+    <section class="invite-card">
+      <div class="top-line">
+        <span class="status-dot"></span>
+        <span class="status-text">EVENT STATUS: ONLINE</span>
+      </div>
+
+      <div class="level-badge">LVL 30</div>
+
+      <p class="mini-title">SYSTEM-MELDUNG</p>
+      <h1>Steve hat bald <span>Level 30</span> erreicht</h1>
+      <p class="subtitle">
+        Nach 29 Jahren voller Quests, Chaos und vermutlich zu viel Bildschirmzeit
+        ist es soweit: Das nächste große Update steht an.
+      </p>
+
+      <!-- Später hier dein Bild einfügen -->
+      <div class="hero-image-placeholder">
+        <div class="scan-line"></div>
+        <p>Hier kommt später dein Bild rein</p>
+      </div>
+
+      <section class="box">
+        <h2>Einladung zum Geburtstagsevent</h2>
+        <p>
+          Ich lade euch herzlich ein, mit mir meinen 30. Geburtstag zu feiern.
+          Locker, entspannt, mit Essen, Getränken und hoffentlich ohne Systemabsturz.
+        </p>
+      </section>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>📅 Wann?</h3>
+          <p><strong>22.08.2026</strong></p>
+          <p>ab <strong>18:00 Uhr</strong></p>
+        </div>
+
+        <div class="info-box">
+          <h3>📍 Wo?</h3>
+          <p><strong>Heidenspielplatz Bodelshausen</strong></p>
+          <a
+            class="route-btn"
+            href="https://www.google.com/maps/dir/?api=1&destination=Freizeitgel%C3%A4nde+Heiden+Bodelshausen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Route starten
+          </a>
+        </div>
+      </div>
+
+      <section class="box">
+        <h2>Versorgungslage</h2>
+        <p>
+          Für Getränke und Essen ist größtenteils gesorgt.
+          Falls ihr besondere Wünsche habt, bringt diese bitte selbst mit.
+        </p>
+      </section>
+
+      <section class="box">
+        <h2>Loot willkommen</h2>
+        <p>
+          Ich freue mich auch über <strong>Salate, Kuchen, Desserts oder Fingerfood</strong>.
+          Kein Muss — aber Bonus-Content ist immer gern gesehen.
+        </p>
+      </section>
+
+      <section class="deadline-box">
+        <h2>Wichtige Quest</h2>
+        <p>
+          Bitte gebt mir <strong>bis spätestens 15.07.2026</strong> Bescheid,
+          ob ihr dabei seid.
+        </p>
+      </section>
+
+      <section class="rsvp-section">
+        <div class="section-head">
+          <h2>Teilnahme bestätigen</h2>
+          <p>
+            Trag dich bitte ein, damit ich weiß, wer am Start ist und wie groß die Party-Raid-Gruppe wird.
+          </p>
+
+          <div class="info-hint">
+            <p>
+              <strong>Wichtig für Eintragungen:</strong><br><br>
+              Wenn du alleine kommst, trag einfach nur deinen Namen ein.<br><br>
+              Wenn du mit Begleitung kommst, dann bitte:<br>
+              - deinen Namen normal eintragen<br>
+              - bei „Begleitung“ die Anzahl auswählen<br>
+              - unten im Feld „Nachricht“ kurz den Namen der Begleitung dazuschreiben<br>
+            </p>
+          </div>
+        </div>
+
+        <form id="rsvpForm" class="rsvp-form">
+          <div class="form-group">
+            <label for="name">Dein Name</label>
+            <input type="text" id="name" name="name" placeholder="z. B. Max Mustermann" required>
+          </div>
+
+          <div class="form-group">
+            <label for="attendance">Bist du dabei?</label>
+            <select id="attendance" name="attendance" required>
+              <option value="">Bitte auswählen</option>
+              <option value="Ja">Ja, ich bin dabei</option>
+              <option value="Nein">Nein, leider nicht</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="guests">Begleitung</label>
+            <select id="guests" name="guests">
+              <option value="0">Keine</option>
+              <option value="1">+1</option>
+              <option value="2">+2</option>
+              <option value="3">+3</option>
+              <option value="4">+4</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="bring">Bringst du etwas mit?</label>
+            <select id="bring" name="bring">
+              <option value="">Nichts ausgewählt</option>
+              <option value="Salat">Salat</option>
+              <option value="Kuchen">Kuchen</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Fingerfood">Fingerfood</option>
+              <option value="Etwas anderes">Etwas anderes</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="message">Nachricht / Besonderheiten</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="z. B. Begleitung oder was du mitbringst"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Antwort absenden</button>
+          </div>
+        </form>
+
+        <p class="form-note" id="formStatus">
+          Deine Rückmeldung wird nach dem Absenden gespeichert.
+        </p>
+
+        <!-- ADMIN BUTTON -->
+<div class="admin-toggle">
+  <button id="openAdminBtn">🔒 Gästeliste (Admin)</button>
+</div>
+
+<!-- LOGIN POPUP -->
+<div class="admin-modal hidden" id="adminModal">
+  <div class="admin-modal-content">
+
+    <h2>Admin Login</h2>
+
+    <div class="form-group">
+      <label>E-Mail</label>
+      <input type="email" id="adminEmail">
+    </div>
+
+    <div class="form-group">
+      <label>Passwort</label>
+      <input type="password" id="adminPassword">
+    </div>
+
+    <div class="admin-actions">
+      <button id="loginBtn">Login</button>
+      <button id="closeAdminBtn" class="secondary-btn">Schließen</button>
+    </div>
+
+    <p id="adminStatus" class="admin-status"></p>
+  </div>
+</div>
+
+<!-- GÄSTELISTE -->
+<div class="guestlist-box hidden" id="guestlistBox">
+  <h3>Gästeliste</h3>
+
+  <div class="guestlist-summary">
+    <div class="summary-card">
+      <span>Zusagen</span>
+      <strong id="yesCount">0</strong>
+    </div>
+    <div class="summary-card">
+      <span>Absagen</span>
+      <strong id="noCount">0</strong>
+    </div>
+    <div class="summary-card">
+      <span>Begleitungen</span>
+      <strong id="guestCount">0</strong>
+    </div>
+  </div>
+
+  <table class="guestlist-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Begleitung</th>
+        <th>Mitbringsel</th>
+        <th>Nachricht</th>
+      </tr>
+    </thead>
+    <tbody id="guestlistBody"></tbody>
+  </table>
+</div>
+      </section>
+
+      <footer class="footer-note">
+        <p>Ich freu mich auf euch 🚀</p>
+        <p class="signature">Steve</p>
+      </footer>
+    </section>
+  </main>
+
+  <script type="module" src="./assets/app.js"></script>
+</body>
+</html>
