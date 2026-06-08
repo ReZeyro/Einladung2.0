@@ -566,3 +566,44 @@ button:hover {
     min-width: 640px;
   }
 }
+.action-buttons{
+
+display:flex;
+
+gap:8px;
+
+flex-wrap:wrap;
+
+}
+
+.edit-btn{
+
+background:#8b5cf6;
+
+color:white;
+
+padding:8px 12px;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}
+
+.delete-btn{
+
+background:#ff4f4f;
+
+color:white;
+
+padding:8px 12px;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}

@@ -6,7 +6,10 @@ import {
   getDocs,
   query,
   orderBy,
-  serverTimestamp
+  serverTimestamp,
+  deleteDoc,
+  updateDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
 import {
   getAuth,
@@ -199,15 +202,46 @@ async function loadGuests() {
         ? d.createdAt.toDate().toLocaleString("de-DE")
         : "-";
 
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${escapeHtml(d.name || "-")}</td>
-        <td>${escapeHtml(d.attendance || "-")}</td>
-        <td>${escapeHtml(String(d.guests ?? 0))}</td>
-        <td>${escapeHtml(d.bring || "-")}</td>
-        <td>${escapeHtml(d.message || "-")}</td>
-        <td>${escapeHtml(createdAt)}</td>
-      `;
+    const row=document.createElement("tr");
+
+row.innerHTML=`
+<td>${escapeHtml(d.name || "-")}</td>
+
+<td>${escapeHtml(d.attendance || "-")}</td>
+
+<td>${escapeHtml(String(d.guests ?? 0))}</td>
+
+<td>${escapeHtml(d.bring || "-")}</td>
+
+<td>${escapeHtml(d.message || "-")}</td>
+
+<td>${escapeHtml(createdAt)}</td>
+
+<td class="action-buttons">
+
+<button class="edit-btn"
+data-id="${doc.id}"
+data-name="${escapeHtml(d.name || "")}"
+data-attendance="${escapeHtml(d.attendance || "")}"
+data-guests="${d.guests || 0}"
+data-bring="${escapeHtml(d.bring || "")}"
+data-message="${escapeHtml(d.message || "")}"
+>
+
+Bearbeiten
+
+</button>
+
+<button class="delete-btn"
+data-id="${doc.id}"
+>
+
+Löschen
+
+</button>
+
+</td>
+`;
       guestBody.appendChild(row);
     });
 
@@ -235,3 +269,72 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
+document.addEventListener("click", async(e)=>{
+
+if(e.target.classList.contains("delete-btn")){
+
+const id=e.target.dataset.id;
+
+if(!confirm("Eintrag löschen?")) return;
+
+await deleteDoc(
+doc(db,"rsvps",id)
+);
+
+loadGuests();
+
+}
+
+
+
+if(e.target.classList.contains("edit-btn")){
+
+const id=e.target.dataset.id;
+
+const name=prompt(
+"Name",
+e.target.dataset.name
+);
+
+if(name===null)return;
+
+const attendance=prompt(
+"Teilnahme (Ja/Nein)",
+e.target.dataset.attendance
+);
+
+if(attendance===null)return;
+
+const guests=prompt(
+"Begleitungen",
+e.target.dataset.guests
+);
+
+const bring=prompt(
+"Mitbringsel",
+e.target.dataset.bring
+);
+
+const message=prompt(
+"Nachricht",
+e.target.dataset.message
+);
+
+await updateDoc(
+doc(db,"rsvps",id),
+{
+
+name,
+attendance,
+guests:Number(guests)||0,
+bring,
+message
+
+}
+);
+
+loadGuests();
+
+}
+
+});
